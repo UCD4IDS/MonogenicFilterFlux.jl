@@ -1,6 +1,6 @@
-An implementation of rotated monogenic decomposition of 2-D signal $`g`$.
+An implementation of rotated monogenic scattering transform network of 2-D signal $g$.
 
-Let $`\theta \in [0, 2 \pi)`$. Denote the Riesz kernel $`r_l`$ and Riesz transform $`R_l`$ as  
+Let $\theta \in [0, 2 \pi)$. Denote the Riesz kernel $r_l$ and Riesz transform $R_l$ as  
 ```math
 r_l({\bf x}) = c_l \dfrac{x_l}{\Vert {\bf x} \Vert^3}
 ```
@@ -31,4 +31,20 @@ using ScatteringTransform
 using MonogenicFilterFlux
 ```
 
+Suppose the feature dimension is `(nTrain_x, nTrain_y, 1, nSubsample)`.
 
+The $l$-th layer monogenic scattering transform network with maximum scale $s$ is 
+```
+scale = s; 
+st = stFlux((nTrain_x, nTrain_y, 1, nSubsample), 2, σ=abs, outputPool = 1, scale = scale); 
+st = cu(st);
+```
+
+Suppose `input_data` is the input of the 2-D signal, and set $\theta$ as `ang`. 
+
+We can find the rotated monogenic decomposition of the scattering output by
+```
+img_rot = rotate_image(input_data, ang);
+output_rot = st(cu(img_rot))
+output_rot = inv_rotate_out(output_rot, img_rot, -ang);
+```
