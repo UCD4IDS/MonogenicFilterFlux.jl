@@ -1,0 +1,9 @@
+name = "MonogenicFilterFlux"
+uuid = "08a3b3d4-a326-42ad-8bf2-aae8cae0b9e1"
+authors = ["Wai Ho CHAK <wchak@ucdavis.edu>"]
+version = "0.1.0"
+
+[deps]
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"

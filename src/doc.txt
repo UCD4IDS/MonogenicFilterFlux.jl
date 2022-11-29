@@ -1,0 +1,17 @@
+1. changes in ScatteringTransform.jl
+
+using MonogenicFilterFlux
+
+2. changes in flTrnasform.jl
+
+temporaily replace shearingLayer(listOfSizes; varargs...) by MonogenicLayer
+
+3. changes in share.jl
+
+change from getBatchSize to MonogenicFilterFlux.getBatchSize
+
+4. changes in applyScattering.jl
+
+change from ConvFFT to MonoConvFFT
+
+5. Exlude PyPlot from MonogenicFilterFlux
