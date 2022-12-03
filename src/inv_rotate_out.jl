@@ -2,21 +2,19 @@ function inv_rotate_out(out, img, angle)
 
 	# Input
 	# out: the ouput after the scattering transform
-	# img: the original image before the scattering transform
+	# img: the target image size for the scattering transform
 	# angle: the rotation angle
 
 	x, y = size(img);
 
 	if length(size(out)) == 4
 
-		xx, yy, fea_out, sample_size = size(out);
+	    xx, yy, fea_out, sample_size = size(out);
 
-		center_x = Int(floor(xx / 2));
-	    center_y = Int(floor(yy / 2));
 	    half_x = Int(ceil(x / 2));
 	    half_y = Int(ceil(y / 2));
 
-		if isodd(x) == 1
+	    if isodd(x) == 1
 	        odd_x = 1;
 	    else
 	        odd_x = 0;
@@ -33,6 +31,9 @@ function inv_rotate_out(out, img, angle)
 		for m = 1:sample_size
 			for kk = 1:fea_out
 			    back_img = imrotate(out[:,:,kk,m], angle, axes(out[:,:,kk,m]));
+			    xx, yy = size(back_img);
+			    center_x = Int(floor(xx / 2));
+	                    center_y = Int(floor(yy / 2));
 
 			    back_img[isnan.(back_img)] .= 0;
 			    back_img = parent(back_img);
@@ -48,10 +49,8 @@ function inv_rotate_out(out, img, angle)
 
 	elseif length(size(out)) == 5
 
-		xx, yy, fea_out, fea_size, sample_size = size(out);
+	    xx, yy, fea_out, fea_size, sample_size = size(out);
 
-		center_x = Int(floor(xx / 2));
-	    center_y = Int(floor(yy / 2));
 	    half_x = Int(ceil(x / 2));
 	    half_y = Int(ceil(y / 2));
 
@@ -73,6 +72,9 @@ function inv_rotate_out(out, img, angle)
 			for m = 1:sample_size
 				for kk = 1:fea_out
 				    back_img = imrotate(out[:,:,kk,fea,m], angle, axes(out[:,:,kk,fea,m]));
+			            xx, yy = size(back_img);
+			            center_x = Int(floor(xx / 2));
+	                            center_y = Int(floor(yy / 2));
 
 				    back_img[isnan.(back_img)] .= 0;
 				    back_img = parent(back_img);
@@ -90,8 +92,6 @@ function inv_rotate_out(out, img, angle)
 
 		xx, yy, fea_out1, fea_out2, fea_size, sample_size = size(out);
 
-		center_x = Int(floor(xx / 2));
-		center_y = Int(floor(yy / 2));
 		half_x = Int(ceil(x / 2));
 		half_y = Int(ceil(y / 2));
 
@@ -114,6 +114,9 @@ function inv_rotate_out(out, img, angle)
 				for jj = 1:fea_out1
 					for kk = 1:fea_out2
 					    back_img = imrotate(out[:,:,jj,kk,fea,m], angle, axes(out[:,:,jj,kk,fea,m]));
+					    xx, yy = size(back_img);
+					    center_x = Int(floor(xx / 2));
+					    center_y = Int(floor(yy / 2));
 	
 					    back_img[isnan.(back_img)] .= 0;
 					    back_img = parent(back_img);
