@@ -78,8 +78,8 @@ for set_ = 0:119
 	output_rot_1 = Array(output_rot[1]);
 	output_rot_2 = Array(output_rot[2]);
 
-	output_rot_1 = inv_rotate_out(output_rot_1, img_rotated, -ang);
-	output_rot_2 = inv_rotate_out(output_rot_2, img_rotated, -ang);
+	output_rot_1 = inv_rotate_out(output_rot_1, output_1, -ang);
+	output_rot_2 = inv_rotate_out(output_rot_2, output_2, -ang);
 
 	output_rot_1 = cat(output_1, output_rot_1, dims = 4);
 	output_rot_2 = cat(output_2, output_rot_2, dims = 5);
@@ -126,8 +126,8 @@ for set_ = 0:19
 	output_rot_1 = Array(output_rot[1]);
 	output_rot_2 = Array(output_rot[2]);
 
-	output_rot_1 = inv_rotate_out(output_rot_1, img_rotated, -ang);
-	output_rot_2 = inv_rotate_out(output_rot_2, img_rotated, -ang);
+	output_rot_1 = inv_rotate_out(output_rot_1, output_1, -ang);
+	output_rot_2 = inv_rotate_out(output_rot_2, output_2, -ang);
 
 	output_rot_1 = cat(output_1, output_rot_1, dims = 4);
 	output_rot_2 = cat(output_2, output_rot_2, dims = 5);
