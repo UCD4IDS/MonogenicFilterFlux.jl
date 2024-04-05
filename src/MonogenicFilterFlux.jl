@@ -2,7 +2,8 @@ module MonogenicFilterFlux
 using Reexport
 # @reexport using CUDA
 using CUDA
-using Zygote, Flux, Shearlab, LinearAlgebra
+#using Zygote, Flux, Shearlab, LinearAlgebra
+using Zygote, Flux, LinearAlgebra
 using AbstractFFTs, FFTW # TODO: check the license on FFTW and such
 using ContinuousWavelets
 using Flux
