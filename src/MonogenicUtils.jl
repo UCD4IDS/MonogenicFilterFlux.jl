@@ -1,6 +1,6 @@
-function getBatchSize(c::MonoConvFFT)
-    return c.fftPlan.sz
-end
+#function getBatchSize(c::MonoConvFFT)
+#    return c.fftPlan.sz
+#end
 
 import FourierFilterFlux.cu
 

@@ -1,7 +1,7 @@
 name = "MonogenicFilterFlux"
 uuid = "27e6407a-9159-4acb-a68a-dfae66d408cf"
 authors = ["Wai Ho CHAK <wchak@ucdavis.edu>"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 AbstractFFTs = "621f4979-c628-5d54-868e-fcf4e3e8185c"

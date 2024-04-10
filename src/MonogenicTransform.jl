@@ -1,32 +1,6 @@
 # transform
 # similar to (shears::ConvFFT)
 
-# Define the types of monogenic wavelets
-abstract type MonoFilterTypes end 
-
-# high-pass Gaussian filter
-struct GaussianHP <: MonoFilterTypes end
-# low-pass Gaussian filter
-struct GaussianLP <: MonoFilterTypes end
-
-
-function monogenic_filter(RHO; Monotype = GaussianHP())
-    
-    if typeof(Monotype) == GaussianLP
-        # For Guassian Low Pass Filter
-        LP  =  exp.( -(RHO.^2)/8 );       # Gaussian low-pass filter
-        HP  =  sqrt.( 1 .- LP.^2 );       # Complementary high-pass filter
-        
-    elseif typeof(Monotype) == GaussianHP
-        # For Guassian High Pass Filter
-        HP  =  1 .- exp.( -(RHO.^2)/2 );  # Gaussian-based high-pass filter
-        LP  =  sqrt.( 1 .- HP.^2 );       # Complementary low-pass
-    end
-    
-    return LP, HP
-    
-end
-
 function (Mono::MonoConvFFT)(x::AbstractArray{<:Number,4})
 
 # input: (nx, ny, nchannels, nexamples)

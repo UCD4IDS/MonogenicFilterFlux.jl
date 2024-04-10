@@ -7,7 +7,6 @@ using MonogenicFilterFlux
 using FileIO, JLD2
 
 #st = stFlux((10,10,1,3), 2);
-
 #output = st(rand(10,10,1,3));
 
 #st = stFlux((10,1,3), 2);
@@ -38,24 +37,6 @@ for set_ = 0:119
 	print("train")
 	print(set_)
 	print("\n")
-	
-	#global train_y;
-	#global train_x;
-
-	#for group = 0:9
-	#	tmp = findall(x->x==group, train_y)[nGroupSubsample * set_ + 1:nGroupSubsample * set_ + nGroupSubsample];
-	#   tmp2 = Int.(group * ones(size(tmp)));
-	#	if group == 0
-	#		global SubLabel = tmp;
-	#       global yLabel = tmp2;
-	#	else
-	#		global SubLabel = vcat(SubLabel, tmp);
-	#       global yLabel = vcat(yLabel, tmp2);
-	#	end
-	#end
-
-	#train_x_sub = train_x[:,:,1:1,SubLabel];
-	#train_y_sub = yLabel;
 
 	scale = 4;
 
@@ -85,15 +66,8 @@ for set_ = 0:119
 	output_rot_2 = cat(output_2, output_rot_2, dims = 5);
 
 
-
-	# FileIO.save("output/output_mnist_scale_" * string(scale) * "_set_" * string(set_) * ".jld2","output",output);
-	# b = FileIO.load("output/output_mnist_scale_" * string(scale) * "_set_" * string(set_) * ".jld2","output");
-
 	FileIO.save("output/output_mnist_2_1_mat_scale_" * string(scale) * "_set_" * string(set_) * ".jld2","output",output_rot_1);
-	# c = FileIO.load("output/output_mnist_2_1_mat_scale_" * string(scale) * "_set_" * string(set_) * ".jld2","output");
-
 	FileIO.save("output/output_mnist_2_2_mat_scale_" * string(scale) * "_set_" * string(set_) * ".jld2","output",output_rot_2);
-	# d = FileIO.load("output/output_mnist_2_2_mat_scale_" * string(scale) * "_set_" * string(set_) * ".jld2","output");
 
 end
 
@@ -133,13 +107,8 @@ for set_ = 0:19
 	output_rot_2 = cat(output_2, output_rot_2, dims = 5);
 
 
-	# FileIO.save("output/output_mnist_scale_" * string(scale) * "_set_" * string(set_) * "_test.jld2","output",output);
-	# b = FileIO.load("output/output_mnist_scale_" * string(scale) * "_set_" * string(set_) * "_test.jld2","output");
-
 	FileIO.save("output/output_mnist_2_1_mat_scale_" * string(scale) * "_set_" * string(set_) * "_test.jld2","output",output_rot_1);
-	# c = FileIO.load("output/output_mnist_2_1_mat_scale_" * string(scale) * "_set_" * string(set_) * "_test.jld2","output");
 
 	FileIO.save("output/output_mnist_2_2_mat_scale_" * string(scale) * "_set_" * string(set_) * "_test.jld2","output",output_rot_2);
-	# d = FileIO.load("output/output_mnist_2_2_mat_scale_" * string(scale) * "_set_" * string(set_) * "_test.jld2","output");
 
 end
