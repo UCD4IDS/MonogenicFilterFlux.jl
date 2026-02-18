@@ -1,6 +1,5 @@
 # transform
 # similar to (shears::ConvFFT)
-
 function (Mono::MonoConvFFT)(x::AbstractArray{<:Number,4})
 
 # input: (nx, ny, nchannels, nexamples)
