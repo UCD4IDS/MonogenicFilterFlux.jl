@@ -161,7 +161,7 @@ export MonogenicLayer
 export MonoFilterTypes, GaussianHP, GaussianLP
 
 include("MonogenicUtils.jl");
-#export getBatchSize
+export size, getBatchSize
 
 export MonoConvFFT
 
