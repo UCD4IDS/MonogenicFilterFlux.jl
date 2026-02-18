@@ -148,7 +148,7 @@ function Base.show(io::IO, l::MonoConvFFT)
     end
     es = originalSize(sz[1:ndims(l.weight) - 1], l.bc);
     print(io, "MonoConvFFT[input=$(es), " *
-          "nfilters = $(size(l.weight)[end]), " *
+          "nfilters = $(size(l.weight)[end]-1), " *
           "σ=$(l.σ), " *
           "bc=$(l.bc), " *
           "averagingLayer=$(l.averagingLayer)]")
