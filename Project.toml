@@ -1,7 +1,7 @@
 name = "MonogenicFilterFlux"
 uuid = "27e6407a-9159-4acb-a68a-dfae66d408cf"
-authors = ["Wai Ho CHAK <wchak@ucdavis.edu>"]
 version = "0.1.2"
+authors = ["Wai Ho CHAK <wchak@ucdavis.edu>"]
 
 [deps]
 AbstractFFTs = "621f4979-c628-5d54-868e-fcf4e3e8185c"
@@ -18,3 +18,14 @@ RecipesBase = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
 cuDNN = "02a925ec-e4fe-4b08-9a7e-0d78e3d38ccd"
+
+[compat]
+FourierFilterFlux = "0.3.8"
+
+[extras]
+Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+Wavelets = "29a6e085-ba6d-5f35-a997-948ac2efa89a"
+
+[targets]
+test = ["Logging", "Test", "Wavelets"]
